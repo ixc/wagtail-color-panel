@@ -1,3 +1,17 @@
+This is a fork of https://github.com/marteinn/wagtail-color-panel, to fix a bug brought about in Wagtail 2.13 where the colour input of the  `ColorInputWidget` isn't updated on initial render, while the text input is.
+
+Note that the current fix has a delay of about half a second where the `DomContentLoaded` event fetches the pre-rendered colour code from the text input. \
+A think a full fix would require a widget adapter to be set up so that the Wagtail Telepath library knows to render both the text AND colour input.
+
+More info here: https://docs.wagtail.io/en/stable/advanced_topics/customisation/streamfield_blocks.html#custom-streamfield-blocks,
+and here: https://docs.wagtail.io/en/latest/reference/streamfield/widget_api.html#streamfield-widget-api.
+
+And an example of converting a streamfield widget (library) to be Wagtail 2.13 ready can be found in `django-instance-selector`: https://github.com/ixc/wagtail-instance-selector/pull/14.
+
+*Original docs are listed below.*
+
+<br><hr><br>
+
 ![Wagtail-Color-Panel](https://github.com/marteinn/wagtail-color-panel/workflows/Wagtail-Color-Panel/badge.svg)
 [![PyPI version](https://badge.fury.io/py/wagtail-color-panel.svg)](https://badge.fury.io/py/wagtail-color-panel)
 

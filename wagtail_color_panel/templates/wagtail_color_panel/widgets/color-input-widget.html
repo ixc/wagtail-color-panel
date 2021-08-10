@@ -12,6 +12,13 @@
         document.getElementById("{{ widget_id }}").addEventListener("input", function(evt) {
             document.getElementById("{{ widget_id }}-color").value = evt.target.value;
         }, false);
+
+        // Hacky fix for bug with Wagtail 2.13+ where color input doesn't get updated
+        // on initial render but text input does (still a half a second delay)
+        window.addEventListener("DOMContentLoaded", () => {
+            document.getElementById("{{ widget_id }}-color").value =
+            document.getElementById("{{ widget_id }}").value
+        }, false);
     </script>
     {% endwith %}
 </div>
